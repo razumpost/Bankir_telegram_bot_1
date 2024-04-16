@@ -27,11 +27,11 @@ async def command_start_handler(message: Message) -> None:
             if not db.user_exists(message.from_user.id):
                 db.add_user(message.from_user.id)
 
-@dp.message(Command('send_all'))
+@dp.message(Command('sendall'))
 async def send_all(message: types.Message) -> None:
     if message.chat.type == 'private':
         if message.from_user.id == 1313756443:
-            text = message.text[10:]
+            text = message.text[9:]
             users = db.get_users()
             for row in users:
                 try:
